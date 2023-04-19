@@ -1,8 +1,6 @@
-import { Route, Routes } from "react-router-dom";
-import dishes from "../src/assets/data/dishes.json";
-import DetailedOrder from "./modules/DetailedOrder";
-import Orders from "./modules/Orders";
 import { Image, Layout } from "antd";
+import SideMenu from "./components/SideMenu";
+import AppRoutes from "./components/AppRoutes";
 
 function App() {
   return (
@@ -12,13 +10,11 @@ function App() {
           src="https://pbs.twimg.com/profile_images/1565795238681214977/jLoAN_gT_400x400.jpg"
           preview={false}
         />
+        <SideMenu />
       </Layout.Sider>
       <Layout>
         <Layout.Content>
-          <Routes>
-            <Route path="" element={<Orders />} />
-            <Route path=":id" element={<DetailedOrder dishes={dishes} />} />
-          </Routes>
+          <AppRoutes />
         </Layout.Content>
         <Layout.Footer
           style={{ textAlign: "center", backgroundColor: "white" }}

@@ -10,7 +10,7 @@ const DetailedOrder = ({ dishes }) => {
       <Descriptions bordered column={{ lg: 1, md: 1, sm: 1 }}>
         <Descriptions.Item label="Costumer"> Simoh Tapoka</Descriptions.Item>
         <Descriptions.Item label="Costumer's address">
-          {order[0].deliveryAddress}
+          {order[0]?.deliveryAddress}
         </Descriptions.Item>
       </Descriptions>
       <Divider />
@@ -28,13 +28,19 @@ const DetailedOrder = ({ dishes }) => {
       <Divider />
       <div style={styles.totalContainer}>
         <h2>Total:</h2>
-        <h3 style={{ fontWeight: "bold" }}>£{order[0].price}</h3>
+        <h3 style={{ fontWeight: "bold" }}>£{order[0]?.price}</h3>
       </div>
       <Divider />
       <div style={styles.buttonsContainer}>
-        {order[0].status === "Pending" && (
+        {order[0]?.status === "Pending" && (
           <div style={styles.buttonsRowContainer}>
-            <Button block type="default" size="large" style={styles.button}>
+            <Button
+              block
+              danger
+              type="primary"
+              size="large"
+              style={styles.button}
+            >
               Decline Order
             </Button>
             <Button block type="primary" size="large" style={styles.button}>
@@ -42,7 +48,7 @@ const DetailedOrder = ({ dishes }) => {
             </Button>
           </div>
         )}
-        {order[0].status === "Accepted" && (
+        {order[0]?.status === "Accepted" && (
           <Button block type="primary" size="large">
             Order is Ready
           </Button>
